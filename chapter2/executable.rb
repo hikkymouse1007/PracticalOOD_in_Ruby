@@ -1,10 +1,12 @@
 require "./gear.rb"
+require "./wheel.rb"
 
-puts Gear.new(52, 11).cog
-puts Gear.new(30, 27).ratio
+@wheel = Wheel.new(26, 1.5)
+puts @wheel.circumference
+puts Gear.new(52, 11, @wheel).gear_inches
+puts Gear.new(52, 11).ratio # wheelはnil
+puts Gear.new(52, 11, @wheel).ratio # 実行可能
 
-## 初期化パラメータ不足
-# Traceback (most recent call last):
-#         2: from executable.rb:3:in `<main>'
-#         1: from executable.rb:3:in `new'
-# /Users/mashimohroki/Desktop/Programming/Ruby /PracticalOOD_in_Ruby/chapter2/gear.rb:3:in `initialize': wrong number of arguments (given 4, expected 2) (ArgumentError)
+## `gear_inches': undefined method `diameter' for nil:NilClass (NoMethodError)
+# puts Gear.new(52, 11).gear_inches # 実行不可能, wheel=nilによってwheelに依存したメゾッドの実行はできない
+

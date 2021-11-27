@@ -1,21 +1,17 @@
 class Gear
   ## アクセサとは: https://qiita.com/yoshimitsu41/items/5f174ff74d8e8b15b0be
-  attr_reader :chainring, :cog ## インスタンス変数の読み取りメゾッドの提供
-  def initialize(chainring, cog)
+  attr_reader :chainring, :cog, :wheel
+  def initialize(chainring, cog, wheel=nil)
     @chainring = chainring
-    @cog =       cog
+    @cog       = cog
+    @wheel     = wheel
   end
 
   def ratio
-    # attr_readerによってinitializeで定義された@(インスタンス変数)のアクセサが提供されるので、@が不要になる
     chainring / cog.to_f ## convert to float
   end
   
   def gear_inches
-    ratio * diameter
-  end
-  
-  def diameter
-    rim + (tire * 2)
+    ratio * wheel.diameter
   end
 end
