@@ -1,16 +1,20 @@
-# require './bicycle.rb'
+require './bicycle.rb'
+require './road_bike.rb'
+require './mountain_bike.rb'
 
-# p bike = Bicycle.new(
-#   size: 'M',
-#   tape_color: 'red' )
-# p bike.size
-# p bike.spares[:tire_size]
+road_bike = RoadBike.new(
+  size:       'M',
+  tape_color: 'red'
+)
 
-require './bicycle2.rb'
+p road_bike.tire_size
+p road_bike.chain
 
-p bike = Bicycle.new(
-  style: :mountain,
-  size: 'S',
+mountain_bike = MountainBike.new(
+  size:        'S',
   front_shock: 'Manitou',
-  rear_shock: 'Fox' )
-p  bike.spares
+  rear_shock:  'Fox'
+)
+
+p mountain_bike.tire_size
+p mountain_bike.chain
