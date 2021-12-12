@@ -1,6 +1,7 @@
 require './bicycle.rb'
 require './road_bike.rb'
 require './mountain_bike.rb'
+require './recumbent_bike.rb'
 
 road_bike = RoadBike.new(
   size:       'M',
@@ -18,3 +19,5 @@ mountain_bike = MountainBike.new(
 
 p mountain_bike.tire_size
 p mountain_bike.chain
+p bent = RecumbentBike.new(flag: 'tall and orange')
+p bent.spares #{:tire_size=>nil, :chain=>nil, :flag=>"tall and orange"}

@@ -1,12 +1,13 @@
 # require './bicycle.rb' は不要
 class RoadBike < Bicycle
-  attr_reader :size, :chain, :tire_size
+  attr_reader :tape_color
 
-  def initialize(args)
+  def post_initialize(args)
     @tape_color = args[:tape_color]
+  end
 
-    # superクラスのinitializeを呼び出す
-    super(args)
+  def local_spares
+    {tape_color: tape_color}
   end
 
   def default_tire_size
