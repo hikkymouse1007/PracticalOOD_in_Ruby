@@ -1,10 +1,10 @@
-require './schedule.rb'
+require "./schedulable.rb"
 
 class Bicycle
-  attr_reader :schedule, :size, :chain, :tire_size
+  include Schedulable
+  attr_reader :size, :chain, :tire_size
 
   def initialize(args={})
-    @schedule    = args[:schedule]  || Schedule.new
     @size        = args[:size]
     @chain       = args[:chain]     || default_chain
     @tire_size   = args[:tire_size] || default_tire_size
@@ -15,13 +15,6 @@ class Bicycle
     1
   end
 
-  def schedulable?(start_date, end_date)
-    !scheduled?(start_date -lead_days, end_date)
-  end
-
-  def scheduled?(start_date, end_date)
-    schedule.scheduled?(self, start_date, end_date)
-  end
 
   def spares
     { tire_size: tire_size,
