@@ -51,3 +51,7 @@ p mountain_bike = Bicycle.new(
 
 p mountain_bike.size
 p mountain_bike.spares
+p mountain_bike.spares.size
+p mountain_bike.parts.size
+p "mountain_bike.parts.class: #{mountain_bike.parts.class}" #Parts
+p "mountain_bike.parts.spares.class: #{mountain_bike.parts.spares.class}" #Array
