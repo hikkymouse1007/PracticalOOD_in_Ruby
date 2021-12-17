@@ -1,11 +1,7 @@
-require "./schedulable.rb"
-
-class Bicycle
-  include Schedulable
-  attr_reader :size, :chain, :tire_size
+class Parts
+attr_reader :chain, :tire_size
 
   def initialize(args={})
-    @size        = args[:size]
     @chain       = args[:chain]     || default_chain
     @tire_size   = args[:tire_size] || default_tire_size
     post_initialize(args)
@@ -36,9 +32,5 @@ class Bicycle
 
   def default_chain
     '10-speed'
-  end
-
-  def lead_days
-    1
   end
 end
