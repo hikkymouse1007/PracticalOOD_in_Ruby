@@ -89,6 +89,8 @@ p mountain_bike = Bicycle.new(
   parts: PartsFactory.build(mountain_config)
 )
 
+
+
 p recumbent_bike = Bicycle.new(
   size: 'L',
   parts: PartsFactory.build(recumbent_config)
