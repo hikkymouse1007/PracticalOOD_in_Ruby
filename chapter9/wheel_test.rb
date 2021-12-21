@@ -1,12 +1,10 @@
 require 'minitest/autorun'
 require './wheel.rb'
+require './diameterizable_interface_test.rb'
 class WheelTest < MiniTest::Unit::TestCase
+  include DiameterrizableInterfaceTest
   def setup
-    @wheel = Wheel.new(26, 1.5)
-  end
-
-  def test_implements_the_diameterizable_interface
-    assert_respond_to(@wheel, :diameter)
+    @wheel = @object = Wheel.new(26, 1.5)
   end
 
   def test_calculates_diameter
